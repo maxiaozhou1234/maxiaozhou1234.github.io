@@ -2,7 +2,7 @@
 title: 【java】NIO 小结
 date: 2020-02-11 17:15:45
 tags: [java,nio]
-catagroties: java
+categories: java
 ---
 
 java NIO 学习后的小结
@@ -17,20 +17,20 @@ java NIO 学习后的小结
 
 2. BIO 与 NIO 的主要区别
 
-	2.1 面向操作
+2.1 面向操作
 	BIO 是面向流操作，NIO 是面向缓冲操作。BIO 每次从流读写一个或多个字节，直至所有字节被读写完成，该过程数据没有被缓存到其它地方，它不能前后移动流中的数据。
 NIO 将数据先缓冲到稍后处理的区域，需要时可以在缓冲区前后移动，具备处理过程中的灵活性。
 
-	2.2 阻塞与非阻塞
+2.2 阻塞与非阻塞
 	Java IO 流失阻塞的，意味着，当线程调用 read（）或 write（）时，该线程被阻塞，直到数据完全读取或者写入，期间线程无法进行其它处理。
 NIO 的非阻塞模式，可以让线程请求写入一些数据到某通道，但不需要等到操作完成，这个现场同时可以去做其他事情。线程通常将非阻塞IO空闲时间用于其他通道上执行IO操作，所以一个线程可以管理多个输入、输出通道。
 
-	2.3 选择器
+2.3 选择器
 	NIO 的选择器允许一个单独线程监视多个输入通道，可以注册多个通道使用一个选择器，然后监控可以处理的输入通道进行操作。
 
 3. NIO 中的 channel
 
-	3.1 FileChannel
+3.1 FileChannel
 	FileChannel 可以通过 `RandomAccessFile.getChannel()` 或 `InputStream,OutputStream .getChannel()` 获取，示例代码如下
 	```java
 	private void channelCopy() {
@@ -62,7 +62,7 @@ NIO 的非阻塞模式，可以让线程请求写入一些数据到某通道，�
 
 	测试在小文件复制速度可能不如流操作，但在大文件拷贝速度比流复制快，测试拷贝1.03G文件，channel 耗时 1.08s，而 stream 需要 11.31s。
 
-	3.2 DatagramChannel
+3.2 DatagramChannel
 	DatagramChannel 广播包的操作，区别不大，示例代码如下：
 
 	服务端
@@ -138,5 +138,5 @@ NIO 的非阻塞模式，可以让线程请求写入一些数据到某通道，�
 	```
 	需注意，如果接收数据超过设定容器的大小，超过部分会丢弃。对于数据的读取可以传入 ByteBuffer[] 数据，将按照顺序进行填充，对于一些固定大小数据头的数据包，使用非常方便，缺点容量一旦确定不可修改，弹性差
 
-	3.3 SocketChannel,ServerSocketChannel
+3.3 SocketChannel,ServerSocketChannel
 	 
