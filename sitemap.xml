@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://maxiaozhou1234.github.io/java/java-nio/</loc>
+    
+    <lastmod>2020-02-11T16:02:44.207Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://maxiaozhou1234.github.io/about/index.html</loc>
     
     <lastmod>2020-02-11T15:25:36.698Z</lastmod>
@@ -9,23 +16,9 @@
   </url>
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/uncategorized/java-nio/</loc>
-    
-    <lastmod>2020-02-11T15:25:36.696Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://maxiaozhou1234.github.io/default/gittalk/</loc>
     
     <lastmod>2020-02-11T15:25:36.695Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://maxiaozhou1234.github.io/uncategorized/hello-world/</loc>
-    
-    <lastmod>2020-02-11T14:51:42.929Z</lastmod>
     
   </url>
   
