@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="xiaozhou blog"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><link rel="stylesheet" type="text/css" href="https://unpkg.com/gitalk/dist/gitalk.css?v=2.0.4"><title>gittalk 配置问题 | xiaozhou Blog</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">gittalk 配置问题</h1><a id="logo" href="/.">xiaozhou Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">gittalk 配置问题</h1><div class="post-meta"><a href="/default/gittalk/#comments" class="comment-count"></a><p><span class="date">Feb 11, 2020</span><span><a href="/categories/default/" class="category">default</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h2 id="使用-gittalk-为-Hexo-添加评论功能"><a href="#使用-gittalk-为-Hexo-添加评论功能" class="headerlink" title="使用 gittalk 为 Hexo 添加评论功能"></a>使用 gittalk 为 Hexo 添加评论功能</h2><ol>
+<li><p>注册 gittalk，可通过 <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">Register a new OAuth application</a> 进行注册。如果已经注册过，可以在 github 首页点击头像下拉，“Settings – Developer settings – OAuth Apps” 查看你的app，选择你注册的 app 进行再次编辑。</p>
+</li>
+<li><p>配置填写</p>
+<ul>
+<li><p>Application name： 应用名称，随意</p>
+</li>
+<li><p>Homepage URL： 网站URL，对应自己博客地址</p>
+</li>
+<li><p>Application description ：描述，随意</p>
+</li>
+<li><p>Authorization callback URL：# 网站URL，博客地址就好</p>
+</li>
+<li><p>点击注册，页面会出现其中Client ID和Client Secret在后面的配置中需要用到</p>
+<p>如我的 gittalk 填写如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Application name： CommentApp</span><br><span class="line">Homepage URL： https:&#x2F;&#x2F;maxiaozhou1234.github.io # 网站URL，对应自己博客地址</span><br><span class="line">Application description ：repo # 描述，随意</span><br><span class="line">Authorization callback URL：https:&#x2F;&#x2F;maxiaozhou1234.github.io # 网站URL，博客地址就好，如果有独立域名，可填写你的域名用于跳转</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在主题的 _config.yml 进行配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#Cmments</span><br><span class="line">comment:</span><br><span class="line">  gitalk:</span><br><span class="line">    enable: true ## 开启gitalk</span><br><span class="line">    owner: ## GitHub的用户名</span><br><span class="line">    repo: ## 此评论存放的GitHub仓库</span><br><span class="line">    client_id: ## 复制刚才生成的clientID，例如. 75752dafe7907a897619</span><br><span class="line">    client_secret: ## 复制刚才生成的clientSecret，例如. ec2fb9054972c891289640354993b662f4cccc50</span><br><span class="line">    admin: ## Github的用户名</span><br><span class="line">	id: location.pathname</span><br><span class="line">    language: zh-CN ## Language</span><br><span class="line">    pagerDirection: last # Comment sorting direction, available values are last and first.</span><br></pre></td></tr></table></figure>
+<p>主题的配置，可以参考<a href="https://chaooo.github.io/article/20161229.html" target="_blank" rel="noopener">【Hexo博客折腾】BlueLake博客主题的详细配置</a></p>
+</li>
+</ol>
+<h3 id="搭建过程遇到的问题"><a href="#搭建过程遇到的问题" class="headerlink" title="搭建过程遇到的问题"></a>搭建过程遇到的问题</h3><ol>
+<li><p>评论区显示 Error: Not Found</p>
+<p> 遇到 Error: Not Found，这个问题是主题 _config.yml 中 gittalk 配置中 repo 填写错误，修改为你的博客主页即可，如我的博客配置如下：</p>
+<blockquote>
+<p>repo： maxiaozhou1234.github.io</p>
+</blockquote>
+</li>
+<li><p>博客评论登录跳转到首页问题</p>
+<p> 申请配置是填写的<code>Homepage URL</code>,<code>Authorization callback URL</code> 不正确导致，第一个填博客首页，第二个是授权回调页面，因为我没有使用独立的域名，所以两个都填博客首页，如下</p>
+<blockquote>
+<p>Homepage URL：<a href="https://maxiaozhou1234.github.io">https://maxiaozhou1234.github.io</a><br>Authorization callback URL：<a href="https://maxiaozhou1234.github.io">https://maxiaozhou1234.github.io</a></p>
+</blockquote>
+<p> 如果你是有自己独立的域名，将 <code>Authorization callback URL</code> 填写为你的域名，前提是你已完成了域名的绑定，还有注意 https 和 http 区别，需完全一致。</p>
+<p> 参考文章：<a href="https://blog.csdn.net/w47_csdn/article/details/88858343" target="_blank" rel="noopener">解决配置gitalk插件后初始化登录时跳转回首页</a></p>
+</li>
+</ol>
+</div><div class="post-copyright"><blockquote><p>原文作者: ma xiaozhou</p><p>原文链接: <a href="https://maxiaozhou1234.github.io/default/gittalk/">https://maxiaozhou1234.github.io/default/gittalk/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)</p></blockquote></div><div class="tags"><a href="/tags/gittalk/">gittalk</a><a href="/tags/hexo/">hexo</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/uncategorized/java-nio/" class="pre">【java】NIO 小结</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
+  clientID: 'caaf9fa61b214b649585',
+  clientSecret: '99fa000941abd4c7f59a0cce1b1deb26813c4ed1',
+  repo: 'maxiaozhou1234.github.io',
+  owner: 'maxiaozhou1234',
+  admin: ['maxiaozhou1234'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: false,
+  language: 'zh-CN',
+  pagerDirection: 'last'
+})
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-gittalk-为-Hexo-添加评论功能"><span class="toc-text">使用 gittalk 为 Hexo 添加评论功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#搭建过程遇到的问题"><span class="toc-text">搭建过程遇到的问题</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/uncategorized/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/uncategorized/java-nio/">【java】NIO 小结</a></li><li class="post-list-item"><a class="post-list-link" href="/default/gittalk/">gittalk 配置问题</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/default/">default</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/gittalk/" style="font-size: 15px;">gittalk</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/nio/" style="font-size: 15px;">nio</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">3</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">ma xiaozhou.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2329dcd6b360689143bd059b178d5961";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
