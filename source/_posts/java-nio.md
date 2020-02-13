@@ -200,7 +200,7 @@ private void server() throws IOException {
     while (true) {
 		//检查是否有可处理通道
         int num = selector.select();
-        if (num == 0) continue;//jdk 中空转有一定几率造成 cpu 100%，属于系统bug，需谨慎
+        if (num == 0) continue;//jdk 中空转有一定几率造成 cpu 100%
 
         Set<SelectionKey> set = selector.selectedKeys();
         Iterator<SelectionKey> it = set.iterator();
@@ -220,10 +220,12 @@ private void server() throws IOException {
             } else if (key.isReadable()) {//处理已连接 channel 数据
                 SocketChannel channel = (SocketChannel) key.channel();
                 ByteBuffer buffer = ByteBuffer.allocate(1024);
-                channel.read(buffer);
-                System.out.println(Charset.forName("UTF-8").decode(buffer));
-				//do something
-				channel.write(Charset.forName("UTF-8").encode("回复"));
+                if(channel.read(buffer)!=-1){
+					buffer.flip();
+	                System.out.println(Charset.forName("UTF-8").decode(buffer));
+					//do something
+					channel.write(Charset.forName("UTF-8").encode("回复"));
+				}
                 channel.close();
             }
         }
