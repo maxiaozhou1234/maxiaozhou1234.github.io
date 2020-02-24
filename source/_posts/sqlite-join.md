@@ -1,11 +1,15 @@
 ---
-title: sqlite join 语法笔记
+title: 【sqlite】join 语法笔记
 date: 2020-02-24 18:04:43
-tags:[sqlite]
 categories: sqlite
+tags: [sqlite]
 ---
-### SQLite 数据库 join 语法笔记
-#### （1）cross join 交叉连接
+
+SQLite 数据库 join 语法笔记
+
+### SQLite 关键字 join
+
+#### 1.cross join 交叉连接
 把第一个表的每一行和第二个表的每一行进行匹配。如表1有m行，表2有n行，交叉连接之后有 m*n 行。
 
 **select * from company;**
@@ -20,12 +24,11 @@ categories: sqlite
 
 ![3.png](https://i.loli.net/2020/02/24/YzhkEsmfAxjnSpv.png)
 
-#### (2) inner join 内联
+#### 2.inner join 内联
 根据连接条件结合两个表的列值创建一个新的结果表。
 内连接语法：
 1. > SELECT ... FROM table1 [INNER] JOIN table2 ON conditional_expression ...
-2. 为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明内连接（INNER JOIN）条件。这个表达式指定一个或多个列的列表： 
-**注：如果两张表的关联字段名相同，才可以使用USING子句** 
+2. 为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明内连接（INNER JOIN）条件。这个表达式指定一个或多个列的列表：**注：如果两张表的关联字段名相同，才可以使用USING子句** 
 > SELECT ... FROM table1 JOIN table2 USING ( column1 ,... ) ...
 
 3. 自然连接（NATURAL JOIN）类似于 JOIN...USING，只是它会自动测试存在两个表中的每一列的值之间相等值：
@@ -36,7 +39,7 @@ categories: sqlite
 
 ![4.png](https://i.loli.net/2020/02/24/bRU9NXdnQfkBwlr.png)
 
-####（3）outer join 外连接
+#### 3.outer join 外连接
 外连接（OUTER JOIN）是内连接（INNER JOIN）的扩展。虽然 SQL 标准定义了三种类型的外连接：LEFT、RIGHT、FULL，**但 SQLite 只支持 左外连接（LEFT OUTER JOIN）**。
 
 1. 左连接 left outer join/left join
@@ -59,7 +62,7 @@ FULL OUTER JOIN也可以简写成FULL JOIN，效果是一样的。
 
 ![5.png](https://i.loli.net/2020/02/24/QgiYNUvdqa1JRwm.png)
 
-#### （4）自连接，扩展
+#### 4.自连接，扩展
 只有一张表，通过把表取别名，当作两张表使用，自己和自己关联。
 
 示例：查询经理的名称，通过员工id和经理id相同自连接查询
@@ -80,3 +83,12 @@ select e.name,e.salary,e2.name manager from employ e , employ e2 where e.manager
 
 ```
 ![6.png](https://i.loli.net/2020/02/24/7ut5ZO6Vsm8aNiX.png)
+
+---
+图片存储记录：
+[1.png](https://i.loli.net/2020/02/24/eFaoVbMcN9fzvnU.png)
+[2.png](https://i.loli.net/2020/02/24/NLHugBocmZ5IdFC.png)
+[6.png](https://i.loli.net/2020/02/24/7ut5ZO6Vsm8aNiX.png)
+[4.png](https://i.loli.net/2020/02/24/bRU9NXdnQfkBwlr.png)
+[5.png](https://i.loli.net/2020/02/24/QgiYNUvdqa1JRwm.png)
+[3.png](https://i.loli.net/2020/02/24/YzhkEsmfAxjnSpv.png)
