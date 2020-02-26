@@ -25,9 +25,10 @@ mp_id;
 Query OK, 0 rows affected (0.03 sec)   
 
  mysql> select * from company_view;
-
+```
++----+-------+------+-------------+
 | id | name  | age  | dept        |
-|:-:|:-:|-:|:-:
++----+-------+------+-------------+
 |  1 | Paul  |   32 | IT Billing  |
 |  2 | Allen |   25 | Engineering |
 |  7 | James |   24 | Finance     |
@@ -35,34 +36,39 @@ Query OK, 0 rows affected (0.03 sec)
 |  4 | Mark  |   25 | Finance     |
 |  5 | David |   27 | Engineering |
 |  6 | Kim   |   22 | Finance     |
-
++----+-------+------+-------------+
 7 rows in set (0.00 sec)
+```
 
 #### 3.删除视图
 > drop view view_name
 
 mysql> show tables;
-
+```
++--------------------+
 | Tables_in_learn_db |
-|:-|
++--------------------+
 | company            |
 | company_view       |
 | department         |
 | employ             |
 | log                |
-
++--------------------+
 5 rows in set (0.01 sec)
+```
 
 > mysql> drop view company_view;
 Query OK, 0 rows affected (0.00 sec)
 
 mysql> show tables;
-
+```
++--------------------+
 | Tables_in_learn_db |
-|:-|
++--------------------+
 | company            |
 | department         |
 | employ             |
 | log                |
 +--------------------+
 4 rows in set (0.00 sec)
+```
