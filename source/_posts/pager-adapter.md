@@ -1,5 +1,5 @@
 ---
-title: 【Android】PagerAdapter notifyDataSetChange 不刷新问题分析
+title: 【Android】PagerAdapter不刷新问题分析
 date: 2020-04-22 22:50:10
 categories: android
 tags: [android]
@@ -118,7 +118,7 @@ ViewPager 在普通的 View 页面，在今天，使用空间其实很小了，�
 
 ### 3. FragmentPagerAdapter 改造，更适合 Fragment 增减
 
-#### 3.1 FragmentPagerAdapter 创建分析
+#### 3.1 Fragment 创建
 
 使用 `FragmentPagerAdapter` 有页面替换需要，除了重写 `getItemPosition()` 还需要重写 `getItemId(position)`。为什么？因为 `fragment` 存在于 `FragmentManager` 中，通过 `mFragmentManager.findFragmentByTag(name)` 来找到之前的 fragment，也可以理解为** fragment 的缓存**，具体源码代码如下：
 
@@ -197,7 +197,7 @@ class PageAdapter extends FragmentPagerAdapter {
 ```
 **注：** SimpleFragment 只是继承 Fragment 增加一个 position 参数及相应方法。
 
-### 3.2 FragmentPagerAdapter 修改前后效果图示
+#### 3.2 适配器修改前后效果图示
 
 效果图：操作中的删除为 data.remove(1);//删除第二个数据
 
