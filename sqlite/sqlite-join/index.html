@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="xiaozhou blog"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><link rel="stylesheet" type="text/css" href="https://unpkg.com/gitalk/dist/gitalk.css?v=2.0.4"><title>【sqlite】join 语法笔记 | xiaozhou Blog</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【sqlite】join 语法笔记</h1><a id="logo" href="/.">xiaozhou Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">【sqlite】join 语法笔记</h1><div class="post-meta"><a href="/sqlite/sqlite-join/#comments" class="comment-count"></a><p><span class="date">Feb 25, 2020</span><span><a href="/categories/sqlite/" class="category">sqlite</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><p>SQLite 数据库 join 语法笔记</p>
+<h3 id="SQLite-关键字-join"><a href="#SQLite-关键字-join" class="headerlink" title="SQLite 关键字 join"></a>SQLite 关键字 join</h3><h4 id="1-cross-join-交叉连接"><a href="#1-cross-join-交叉连接" class="headerlink" title="1.cross join 交叉连接"></a>1.cross join 交叉连接</h4><p>把第一个表的每一行和第二个表的每一行进行匹配。如表1有m行，表2有n行，交叉连接之后有 m*n 行。</p>
+<p><strong>select * from company;</strong></p>
+<p><img src="https://i.loli.net/2020/02/24/eFaoVbMcN9fzvnU.png" alt="1.png"></p>
+<p><strong>select * from department;</strong></p>
+<p><img src="https://i.loli.net/2020/02/24/NLHugBocmZ5IdFC.png" alt="2.png"></p>
+<p><strong>select emp_id,name,dept from company cross join department;</strong></p>
+<p><img src="https://i.loli.net/2020/02/24/YzhkEsmfAxjnSpv.png" alt="3.png"></p>
+<h4 id="2-inner-join-内联"><a href="#2-inner-join-内联" class="headerlink" title="2.inner join 内联"></a>2.inner join 内联</h4><p>根据连接条件结合两个表的列值创建一个新的结果表。<br>内连接语法：</p>
+<ol>
+<li><blockquote>
+<p>SELECT … FROM table1 [INNER] JOIN table2 ON conditional_expression …</p>
+</blockquote>
+</li>
+<li><p>为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明内连接（INNER JOIN）条件。这个表达式指定一个或多个列的列表：<strong>注：如果两张表的关联字段名相同，才可以使用USING子句</strong> </p>
+<blockquote>
+<p>SELECT … FROM table1 JOIN table2 USING ( column1 ,… ) …</p>
+</blockquote>
+</li>
+<li><p>自然连接（NATURAL JOIN）类似于 JOIN…USING，只是它会自动测试存在两个表中的每一列的值之间相等值：</p>
+<blockquote>
+<p>SELECT … FROM table1 NATURAL JOIN table2…</p>
+</blockquote>
+</li>
+</ol>
+<p>示例：<br><strong>select emp_id,name,dept from company inner join department on company.id=department.emp_id;</strong></p>
+<p><img src="https://i.loli.net/2020/02/24/bRU9NXdnQfkBwlr.png" alt="4.png"></p>
+<h4 id="3-outer-join-外连接"><a href="#3-outer-join-外连接" class="headerlink" title="3.outer join 外连接"></a>3.outer join 外连接</h4><p>外连接（OUTER JOIN）是内连接（INNER JOIN）的扩展。虽然 SQL 标准定义了三种类型的外连接：LEFT、RIGHT、FULL，<strong>但 SQLite 只支持 左外连接（LEFT OUTER JOIN）</strong>。</p>
+<ol>
+<li>左连接 left outer join/left join<br>关联两张或多张表中，根据条件显示匹配的数据。依附于左表进行扩展，扩展后表中内容如果右表没有匹配数据，则用 null 显示。</li>
+<li>右连接 right outer join/right join<br>关联两张或多张表中，根据条件显示匹配的数据。依附于右表进行扩展，扩展后表中内容如果左表没有匹配数据，则用 null 显示。</li>
+<li>全连接 full outer join/right join<br>全外连接就是关联的两张或多张表中，根据关联条件，显示所有匹配和不匹配的记录。<br>左表中有的记录，但是右表中没有匹配上的，以空(null)显示。右表中有的记录，但是左表中没有匹配上的，也以空(null)显示。<br>FULL OUTER JOIN也可以简写成FULL JOIN，效果是一样的。</li>
+</ol>
+<p>左外连接语法：</p>
+<ol>
+<li><blockquote>
+<p>SELECT … FROM table1 LEFT OUTER JOIN table2 ON [conditional_expression 条件] …</p>
+</blockquote>
+</li>
+<li><p>为了避免冗余，可以使用 <strong>using</strong> 声明条件 </p>
+<blockquote>
+<p>SELECT … FROM table1 LEFT OUTER JOIN table2 USING ( column1 ,… ) …</p>
+</blockquote>
+</li>
+</ol>
+<p>示例：<br><strong>select emp_id,name,dept from company left outer join department on company.id=department.emp_id;</strong></p>
+<p><img src="https://i.loli.net/2020/02/24/QgiYNUvdqa1JRwm.png" alt="5.png"></p>
+<h4 id="4-自连接，扩展"><a href="#4-自连接，扩展" class="headerlink" title="4.自连接，扩展"></a>4.自连接，扩展</h4><p>只有一张表，通过把表取别名，当作两张表使用，自己和自己关联。</p>
+<p>示例：查询经理的名称，通过员工id和经理id相同自连接查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">create table employ (id int,name char(20),salary real check(salary &gt;0),manager_id int);</span><br><span class="line"></span><br><span class="line">insert into employ values (1,&#39;aa&#39;,2000,3);</span><br><span class="line">insert into employ values (2,&#39;bb&#39;,1000,3);</span><br><span class="line">insert into employ values (3,&#39;cc&#39;,2500,4);</span><br><span class="line">insert into employ values (4,&#39;dd&#39;,6000,100);</span><br><span class="line">insert into employ values (100,&#39;ee&#39;,6000,0);</span><br><span class="line"></span><br><span class="line">默认使用 inner join，同样也可以使用left join</span><br><span class="line">select e.name,e.salary,e2.name manager from employ e ，employ e2 on e.manager_id &#x3D; e2.id;</span><br><span class="line"></span><br><span class="line">使用条件 where</span><br><span class="line">select e.name,e.salary,e2.name manager from employ e , employ e2 where e.manager_id &#x3D; e2.id;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2020/02/24/7ut5ZO6Vsm8aNiX.png" alt="6.png"></p>
+<hr>
+<p>图片存储记录：<br><a href="https://i.loli.net/2020/02/24/eFaoVbMcN9fzvnU.png" target="_blank" rel="noopener">1.png</a><br><a href="https://i.loli.net/2020/02/24/NLHugBocmZ5IdFC.png" target="_blank" rel="noopener">2.png</a><br><a href="https://i.loli.net/2020/02/24/7ut5ZO6Vsm8aNiX.png" target="_blank" rel="noopener">6.png</a><br><a href="https://i.loli.net/2020/02/24/bRU9NXdnQfkBwlr.png" target="_blank" rel="noopener">4.png</a><br><a href="https://i.loli.net/2020/02/24/QgiYNUvdqa1JRwm.png" target="_blank" rel="noopener">5.png</a><br><a href="https://i.loli.net/2020/02/24/YzhkEsmfAxjnSpv.png" target="_blank" rel="noopener">3.png</a></p>
+</div><div class="post-copyright"><blockquote><p>原文作者: ma xiaozhou</p><p>原文链接: <a href="https://maxiaozhou1234.github.io/sqlite/sqlite-join/">https://maxiaozhou1234.github.io/sqlite/sqlite-join/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)</p></blockquote></div><div class="tags"><a href="/tags/sqlite/">sqlite</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/sqlite/sqlite-union/" class="pre">【sqlite】unions 语法笔记</a><a href="/sqlite/mysql-cmd/" class="next">【MySQL】操作命令</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
+  clientID: 'caaf9fa61b214b649585',
+  clientSecret: '99fa000941abd4c7f59a0cce1b1deb26813c4ed1',
+  repo: 'maxiaozhou1234.github.io',
+  owner: 'maxiaozhou1234',
+  admin: ['maxiaozhou1234'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: false,
+  language: 'zh-CN',
+  pagerDirection: 'last'
+})
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQLite-关键字-join"><span class="toc-text">SQLite 关键字 join</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-cross-join-交叉连接"><span class="toc-text">1.cross join 交叉连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-inner-join-内联"><span class="toc-text">2.inner join 内联</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-outer-join-外连接"><span class="toc-text">3.outer join 外连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-自连接，扩展"><span class="toc-text">4.自连接，扩展</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/android/pager-adapter/">【Android】PagerAdapter notifyDataSetChange 不刷新问题分析</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-test/">【sqlite】测试题</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-view/">【sqlite】VIEW 视图</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-trigger/">【sqlite】Trigger 触发器</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-union/">【sqlite】unions 语法笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-join/">【sqlite】join 语法笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/mysql-cmd/">【MySQL】操作命令</a></li><li class="post-list-item"><a class="post-list-link" href="/java/java-nio/">【java】NIO 小结</a></li><li class="post-list-item"><a class="post-list-link" href="/default/gittalk/">【其他】gittalk 配置问题</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/default/">default</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sqlite/">sqlite</a><span class="category-list-count">6</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/nio/" style="font-size: 15px;">nio</a> <a href="/tags/gittalk/" style="font-size: 15px;">gittalk</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/sqlite/" style="font-size: 15px;">sqlite</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">9</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">ma xiaozhou.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2329dcd6b360689143bd059b178d5961";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>

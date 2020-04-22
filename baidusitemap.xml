@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://maxiaozhou1234.github.io/android/pager-adapter/</loc>
+    <lastmod>2020-04-22</lastmod>
+  </url>  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-union/</loc>
+    <lastmod>2020-04-22</lastmod>
+  </url>  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-trigger/</loc>
+    <lastmod>2020-04-22</lastmod>
+  </url>  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-view/</loc>
+    <lastmod>2020-04-22</lastmod>
+  </url>  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-join/</loc>
+    <lastmod>2020-04-22</lastmod>
+  </url>  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-test/</loc>
+    <lastmod>2020-04-22</lastmod>
+  </url>  <url>
     <loc>https://maxiaozhou1234.github.io/java/java-nio/</loc>
-    <lastmod>2020-02-12</lastmod>
+    <lastmod>2020-04-22</lastmod>
   </url>  <url>
     <loc>https://maxiaozhou1234.github.io/default/gittalk/</loc>
-    <lastmod>2020-02-12</lastmod>
+    <lastmod>2020-04-22</lastmod>
+  </url>  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/mysql-cmd/</loc>
+    <lastmod>2020-04-22</lastmod>
   </url>
 </urlset>
