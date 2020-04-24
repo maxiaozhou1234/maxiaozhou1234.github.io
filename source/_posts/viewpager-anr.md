@@ -5,17 +5,18 @@ categories: android
 tags: [android]
 ---
 
-# 无限循环 ViewPager setCurrentItem 导致 ANR 分析
+无限循环 ViewPager setCurrentItem 导致 ANR 分析
+
 
 ## 1. 无限循环 ViewPager
 
 通过 adapter 的 getCount 返回一个足够大的数字，再初始化显示的item在中间位置，那么用户在左右滑动能够模拟出一个循环的显示界面。
 
-### 1.1 setCurrentItem 卡顿
+## 2. 调用 setCurrentItem 卡顿
 
 当我们设置的 getCount 是一个较小的数字时，调用该方法总能快速跳转到目标位置，但是 getCount 是一个大数，如 Integer.MAX_VALUE，那么在调用跳转时，很容易触发 anr。
 
-### 1.2 源码分析
+### 2.1 源码分析
 
 设置显示的item角标，最终调用 `void setCurrentItemInternal(int item, boolean smoothScroll, boolean always, int velocity)` 这个函数，看下这个方法：
 ```
@@ -225,18 +226,18 @@ public class AspectVp {
 
 所以，3再会触发一次 `populate()`，但3-2-3不会成为死循环，总共有4次调用
 
-### 1.3 解决思路
+### 2.2 解决思路
 
 处理这个问题，有简单的方法，因为设置大数 2^32 真的太大了，修改为小一点、用户感知不强的数字，如10000,而5千次的滑动对用户也算是大操作，并且这个循环耗时在一个可接受范围，也不会造成页面的卡顿甚至 ANR。
 
 或者，当设置的item超过pageLimit，我们强制把 isSrolling 设置为false，那么在遍历缓存 mItem 时能够及时更新 ii，使我们及时打破循环，跳出无用的循环时间。
 
 
-## 2. 具体方案：打破循环 
+## 3. 具体方案：打破循环 
 
 打破循环，让 `for (int pos = mCurItem - 1; pos >= 0; pos--)` 和 ` for (int pos = mCurItem + 1; pos < N; pos++)` 尽快结束循环
 
-### 2.1 设置有限的小数（相对 2^32 来说）
+### 3.1 设置有限的小数（相对 2^32 来说）
 
 adapter 设置 getCount 为小数值，让循环基数降低，即使执行次数多，所等待的时间也处于可接受范围
 
@@ -254,7 +255,7 @@ class Adapter extends PagerAdapter {
 }
 ```
 
-### 2.2 不触发设置 scrolling 条件
+### 3.2 不触发设置 scrolling 条件
 
 在 setCurrentItem 后，只要设置的 newIndex 在区间 **(currentItem-pageLimit,currentItem+pageLimit)**，就不会触发设置该条件，那么在调用设置之前，把 pageLimit 设置为 **Math.abs(newIndex - currentItem)**，调用设置位置之后，再重置回去，同样可以达到秒跳转效果，代码如下：
 
@@ -274,7 +275,7 @@ if(newLimit>tmp) {
 }
 ```
 
-#### 2.3 重置 scrolling 为 false
+### 3.3 重置 scrolling 为 false
 
 在设置完 setCurrentItem 后，由于跳转距离问题会将 scrolling 置为 true，所以在执行 `void populate(int newCurrentItem)` 之前把 scrolling 重置为 false，但是 mItems 是私有变量，需通过反射获取，再通过 AspectJ 埋点在执行之前遍历重置 scrolling，这么看来，无疑方法二是最快解决问题的方式。
 
