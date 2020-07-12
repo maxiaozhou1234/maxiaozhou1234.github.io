@@ -395,6 +395,8 @@ uploadArchives {
 
 在其他需要的项目中，添加 mapper 依赖，增加注解器即可。
 
+[项目地址，点我查阅](https://github.com/maxiaozhou1234/Mapper)
+
 
 
 
