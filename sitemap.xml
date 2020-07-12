@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/android/pager-adapter/</loc>
+    <loc>https://maxiaozhou1234.github.io/android/java-annotation/</loc>
     
-    <lastmod>2020-04-22T16:11:58.281Z</lastmod>
+    <lastmod>2020-07-12T09:37:36.238Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-union/</loc>
+    <loc>https://maxiaozhou1234.github.io/android/viewpager-anr/</loc>
     
-    <lastmod>2020-04-22T15:56:40.688Z</lastmod>
+    <lastmod>2020-04-25T03:07:46.049Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/android/pager-adapter/</loc>
+    
+    <lastmod>2020-04-22T16:11:58.281Z</lastmod>
     
   </url>
   
@@ -30,16 +37,16 @@
   </url>
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/about/index.html</loc>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-union/</loc>
     
     <lastmod>2020-04-22T15:56:40.688Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-join/</loc>
+    <loc>https://maxiaozhou1234.github.io/about/index.html</loc>
     
-    <lastmod>2020-04-22T15:56:40.687Z</lastmod>
+    <lastmod>2020-04-22T15:56:40.688Z</lastmod>
     
   </url>
   
@@ -51,9 +58,9 @@
   </url>
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/default/gittalk/</loc>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-join/</loc>
     
-    <lastmod>2020-04-22T15:56:40.686Z</lastmod>
+    <lastmod>2020-04-22T15:56:40.687Z</lastmod>
     
   </url>
   
@@ -66,6 +73,13 @@
   
   <url>
     <loc>https://maxiaozhou1234.github.io/java/java-nio/</loc>
+    
+    <lastmod>2020-04-22T15:56:40.686Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/default/gittalk/</loc>
     
     <lastmod>2020-04-22T15:56:40.686Z</lastmod>
     
