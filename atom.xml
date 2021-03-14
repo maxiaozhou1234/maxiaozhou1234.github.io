@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://maxiaozhou1234.github.io/"/>
-  <updated>2020-07-12T09:54:37.104Z</updated>
+  <updated>2021-03-14T11:24:44.852Z</updated>
   <id>https://maxiaozhou1234.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【java】Pipe</title>
+    <link href="https://maxiaozhou1234.github.io/java/java-pipe/"/>
+    <id>https://maxiaozhou1234.github.io/java/java-pipe/</id>
+    <published>2021-03-14T10:32:17.000Z</published>
+    <updated>2021-03-14T11:24:44.852Z</updated>
+    
+    <content type="html"><![CDATA[<p>java Pipe 管道流</p><h3 id="1-Pipe-管道"><a href="#1-Pipe-管道" class="headerlink" title="1. Pipe 管道"></a>1. Pipe 管道</h3><p>对于数据流的处理，一般情况下我们在同一个线程中进行。如果遇到异步处理场景，一边进行数据写入，另一线程进行数据读取，那么 Pipe 管道可以很好解决这个问题。</p><p>先看 Pipe 的原理图示：</p><p><img src="http://ifeve.com/wp-content/uploads/2013/06/pipe.bmp" alt=""></p><p>在同一管道中，Sink 作为头进行数据写入，而 Source 端进行数据读取，实现了数据的流通，就像是水管，一头流入，一头流出。因为 Pipe 具备了 sink 和 source，所以在不同线程中，可以通过同一个 pipe 实现一端数据写入，一端读取，从而实现了不同线程间的数据流通信。</p><h3 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h3><p>先打开一个 Pipe，为了模拟不同线程通信，先启动线程，读取本地文件，再写入管道，另一个线程读取，并将接收的数据打印出来。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;开启一个通道</span><br><span class="line">Pipe pipe &#x3D; Pipe.open();</span><br><span class="line">&#x2F;&#x2F;线程：模拟数据写入</span><br><span class="line">CompletableFuture.runAsync(() -&gt; &#123;</span><br><span class="line">    Pipe.SinkChannel sinkChannel &#x3D; pipe.sink();</span><br><span class="line"></span><br><span class="line">    try &#123;</span><br><span class="line">        ByteBuffer buffer &#x3D; ByteBuffer.allocate(1024);</span><br><span class="line">        FileChannel fileChannel &#x3D; new FileInputStream(&quot;.&#x2F;res&#x2F;normal.txt&quot;).getChannel();</span><br><span class="line">        &#x2F;&#x2F;读取文件中数据，写入管道</span><br><span class="line">        while (fileChannel.read(buffer) !&#x3D; -1) &#123;</span><br><span class="line">            buffer.flip();</span><br><span class="line">            sinkChannel.write(buffer);</span><br><span class="line">            buffer.clear();</span><br><span class="line"></span><br><span class="line">            try &#123;</span><br><span class="line">                Thread.sleep(200);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;exit system&quot;);</span><br><span class="line">        fileChannel.close();</span><br><span class="line">        sinkChannel.close();</span><br><span class="line">    &#125; catch (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ByteBuffer buffer &#x3D; ByteBuffer.allocate(1024);</span><br><span class="line">&#x2F;&#x2F;拿到 source 端，读取数据</span><br><span class="line">Pipe.SourceChannel source &#x3D; pipe.source();</span><br><span class="line">while (source.read(buffer) !&#x3D; -1) &#123;</span><br><span class="line">    buffer.flip();</span><br><span class="line">    String data &#x3D; new String(buffer.array(), StandardCharsets.UTF_8);</span><br><span class="line">    System.out.println(data);</span><br><span class="line">    buffer.clear();</span><br><span class="line">    if (&quot;stop&quot;.equals(data)) &#123;</span><br><span class="line">        System.out.println(&quot;load stop,exit!&quot;);</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">source.close();</span><br></pre></td></tr></table></figure><p>在数据流处理角度上看，和通常使用的 InputStream OutputStream，并没有区别。</p><h3 id="3-小结"><a href="#3-小结" class="headerlink" title="3. 小结"></a>3. 小结</h3><p>Pipe 在开发中使用较少，写这篇的主要原因在于一天看到一篇关于 zero-copy 的文章，里面除了利用 NIO Channel 进行举例，还使用了 Pipe，让我误会 Pipe 能够进一步加速文件数据的复制操作，在了解之后发现那个博主纯粹是为了使用而使用。<br>Pipe 就是一个单纯连接输入端和输出端的工具，仅此而已。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;java Pipe 管道流&lt;/p&gt;
+&lt;h3 id=&quot;1-Pipe-管道&quot;&gt;&lt;a href=&quot;#1-Pipe-管道&quot; class=&quot;headerlink&quot; title=&quot;1. Pipe 管道&quot;&gt;&lt;/a&gt;1. Pipe 管道&lt;/h3&gt;&lt;p&gt;对于数据流的处理，一般情况下我们在同一
+      
+    
+    </summary>
+    
+    
+      <category term="java" scheme="https://maxiaozhou1234.github.io/categories/java/"/>
+    
+    
+      <category term="java" scheme="https://maxiaozhou1234.github.io/tags/java/"/>
+    
+      <category term="nio" scheme="https://maxiaozhou1234.github.io/tags/nio/"/>
+    
+  </entry>
   
   <entry>
     <title>【java】Mapper 自定义注解器</title>
