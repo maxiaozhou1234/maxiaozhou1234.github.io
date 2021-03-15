@@ -21,6 +21,7 @@ show create database xxx;
 show tables;
 6. 删除数据库
 drop database xxx;
+<<<<<<< HEAD
 
 ### MySQL 5.5版本
 1. 没有 datatime,如需要使用时间戳，用**timestmap**代替
@@ -50,3 +51,23 @@ drop database xxx;
 * [ ] SQLite Vacuum
 * [x] SQLite 日期 & 时间
 * [ ] SQLite 常用函数
+=======
+7. 查看所有触发器
+show triggers;
+8. 查看指定表触发器（使用 \G 切换视图为纵向输出）
+select * from information_schema.triggers where EVENT_OBJECT_TABLE='table_name';
+9. 删除触发器
+drop trigger trigger_name;
+10. 查看表结构
+desc table;
+describe table;
+11. 创建视图
+create view view_name as select column1[...] from table where [condition];
+12. 删除视图
+drop view name; 
+
+### MySQL 5.5版本注意
+1. 没有 datatime,如需要使用时间戳，用**timestmap**代替
+2. 默认使用分号**；**结束判断，如果需要多行输入，将delimiter ; 更改为delimiter //，按**“//”**为结束判断 
+3. 没有 datetime ，时间戳使用 timestamp
+>>>>>>> 44295f6b3470b9af3de24b5f8792d7898b2cbfa2
