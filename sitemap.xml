@@ -2,51 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-view/</loc>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-join/</loc>
     
-    <lastmod>2021-03-15T06:09:48.637Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-union/</loc>
-    
-    <lastmod>2021-03-15T06:09:48.636Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-trigger/</loc>
-    
-    <lastmod>2021-03-15T06:09:48.634Z</lastmod>
+    <lastmod>2021-03-15T06:21:13.624Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-test/</loc>
     
-    <lastmod>2021-03-15T06:09:48.633Z</lastmod>
+    <lastmod>2021-03-15T06:20:40.570Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-join/</loc>
+    <loc>https://maxiaozhou1234.github.io/android/viewpager-anr/</loc>
     
-    <lastmod>2021-03-15T06:09:48.632Z</lastmod>
+    <lastmod>2021-03-15T06:16:14.334Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-view/</loc>
+    
+    <lastmod>2021-03-15T06:16:14.333Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-union/</loc>
+    
+    <lastmod>2021-03-15T06:16:14.331Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-trigger/</loc>
+    
+    <lastmod>2021-03-15T06:16:14.330Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/android/pager-adapter/</loc>
+    
+    <lastmod>2021-03-15T06:16:14.325Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/mysql-cmd/</loc>
     
-    <lastmod>2021-03-15T06:09:48.631Z</lastmod>
+    <lastmod>2021-03-15T06:16:14.301Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/java/java-pipe/</loc>
+    
+    <lastmod>2021-03-15T06:16:14.299Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://maxiaozhou1234.github.io/java/java-nio/</loc>
     
-    <lastmod>2021-03-15T06:09:48.629Z</lastmod>
+    <lastmod>2021-03-15T06:16:14.298Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/android/java-annotation/</loc>
+    
+    <lastmod>2021-03-15T06:16:14.296Z</lastmod>
     
   </url>
   
