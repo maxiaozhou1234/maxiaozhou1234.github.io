@@ -36,34 +36,37 @@ NIO 的选择器允许一个单独线程监视多个输入通道，可以注册�
 FileChannel 可以通过 `RandomAccessFile.getChannel()` 或 `InputStream,OutputStream .getChannel()` 获取，示例代码如下
 
 ```java
-private void channelCopy() {
-    Instant begin = Instant.now();
-    try {
+	private void channelCopy() {
+	    Instant begin = Instant.now();
+	    try {
+	
+	        RandomAccessFile source = new RandomAccessFile("./res/threeWithoutPunctuation", "r");
+	        RandomAccessFile target = new RandomAccessFile("./res/copyFileNio", "rw");
+	
+	        ByteBuffer buffer = ByteBuffer.allocate(1024*8);
+	        FileChannel sourceChannel = source.getChannel();
+	        FileChannel targetChannel = target.getChannel();
+	        while (sourceChannel.read(buffer) != -1) {
+	            buffer.flip();
+	            while (buffer.hasRemaining()) {
+	                targetChannel.write(buffer);
+	            }
+	            buffer.clear();
+	        }
+	        sourceChannel.close();
+	        targetChannel.close();
+	
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	    System.out.println("[channelCopy] Done >> " + (Duration.between(begin, Instant.now()).toMillis()) + " ms");
+	}
+```
 
-        RandomAccessFile source = new RandomAccessFile("./res/threeWithoutPunctuation", "r");
-        RandomAccessFile target = new RandomAccessFile("./res/copyFileNio", "rw");
 
-        ByteBuffer buffer = ByteBuffer.allocate(1024*8);
-        FileChannel sourceChannel = source.getChannel();
-        FileChannel targetChannel = target.getChannel();
-        while (sourceChannel.read(buffer) != -1) {
-            buffer.flip();
-            while (buffer.hasRemaining()) {
-                targetChannel.write(buffer);
-            }
-            buffer.clear();
-        }
-        sourceChannel.close();
-        targetChannel.close();
-
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    System.out.println("[channelCopy] Done >> " + (Duration.between(begin, Instant.now()).toMillis()) + " ms");
-}
-``` 
-
-测试在小文件复制速度可能不如流操作，但在大文件拷贝速度比流复制快，测试拷贝1.03G文件，channel 耗时 1.08s，而 stream 需要 11.31s。
+**小结：** 
+测试在小文件复制速度可能不如流操作，但在大文件拷贝速度比流复制快，
+测试拷贝1.03G文件，channel 耗时 1.08s，而 stream 需要 11.31s。   
 
 #### 3.2 DatagramChannel
 DatagramChannel 广播包的操作，区别不大，示例代码如下：
@@ -97,7 +100,7 @@ private void startServer() {
     }
 }
 ```
-
+   
 客户端
 
 ```java
