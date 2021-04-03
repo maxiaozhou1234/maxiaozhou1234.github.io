@@ -7,20 +7,109 @@
 <blockquote>
 <p>mysql&gt; create view company_view as select e.id,e.name,e.age,d.dept from company e inner join department d where e.id=d.e<br>mp_id;<br>Query OK, 0 rows affected (0.03 sec)   </p>
 </blockquote>
-<p> mysql&gt; select * from company_view;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+----+-------+------+-------------+</span><br><span class="line">| id | name  | age  | dept        |</span><br><span class="line">+----+-------+------+-------------+</span><br><span class="line">|  1 | Paul  |   32 | IT Billing  |</span><br><span class="line">|  2 | Allen |   25 | Engineering |</span><br><span class="line">|  7 | James |   24 | Finance     |</span><br><span class="line">|  3 | Teddy |   23 | Engineering |</span><br><span class="line">|  4 | Mark  |   25 | Finance     |</span><br><span class="line">|  5 | David |   27 | Engineering |</span><br><span class="line">|  6 | Kim   |   22 | Finance     |</span><br><span class="line">+----+-------+------+-------------+</span><br><span class="line">7 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-
+<p> mysql&gt; select * from company_view;<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<table>
+<thead>
+<tr>
+<th align="center">id</th>
+<th align="center">name</th>
+<th align="right">age</th>
+<th align="center">dept</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">=======</td>
+<td align="center"></td>
+<td align="right"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">+----+-------+------+-------------+</span><br><span class="line">| id | name  | age  | dept        |</span><br><span class="line">+----+-------+------+-------------+</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 44295f6b3470b9af3de24b5f8792d7898b2cbfa2</span><br><span class="line">|  1 | Paul  |   32 | IT Billing  |</span><br><span class="line">|  2 | Allen |   25 | Engineering |</span><br><span class="line">|  7 | James |   24 | Finance     |</span><br><span class="line">|  3 | Teddy |   23 | Engineering |</span><br><span class="line">|  4 | Mark  |   25 | Finance     |</span><br><span class="line">|  5 | David |   27 | Engineering |</span><br><span class="line">|  6 | Kim   |   22 | Finance     |</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line"></span><br><span class="line">7 rows in set (0.00 sec)</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">+----+-------+------+-------------+</span><br><span class="line">7 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></td>
+<td align="center"></td>
+<td align="right"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>44295f6b3470b9af3de24b5f8792d7898b2cbfa2</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <h4 id="3-删除视图"><a href="#3-删除视图" class="headerlink" title="3.删除视图"></a>3.删除视图</h4><blockquote>
 <p>drop view view_name</p>
 </blockquote>
-<p>mysql&gt; show tables;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+--------------------+</span><br><span class="line">| Tables_in_learn_db |</span><br><span class="line">+--------------------+</span><br><span class="line">| company            |</span><br><span class="line">| company_view       |</span><br><span class="line">| department         |</span><br><span class="line">| employ             |</span><br><span class="line">| log                |</span><br><span class="line">+--------------------+</span><br><span class="line">5 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure>
-
+<p>mysql&gt; show tables;<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<table>
+<thead>
+<tr>
+<th align="left">Tables_in_learn_db</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">=======</td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+--------------------+</span><br><span class="line">| Tables_in_learn_db |</span><br><span class="line">+--------------------+</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 44295f6b3470b9af3de24b5f8792d7898b2cbfa2</span><br><span class="line">| company            |</span><br><span class="line">| company_view       |</span><br><span class="line">| department         |</span><br><span class="line">| employ             |</span><br><span class="line">| log                |</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line"></span><br><span class="line">5 rows in set (0.01 sec)</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">+--------------------+</span><br><span class="line">5 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure></td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>44295f6b3470b9af3de24b5f8792d7898b2cbfa2</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <blockquote>
 <p>mysql&gt; drop view company_view;<br>Query OK, 0 rows affected (0.00 sec)</p>
 </blockquote>
-<p>mysql&gt; show tables;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+--------------------+</span><br><span class="line">| Tables_in_learn_db |</span><br><span class="line">+--------------------+</span><br><span class="line">| company            |</span><br><span class="line">| department         |</span><br><span class="line">| employ             |</span><br><span class="line">| log                |</span><br><span class="line">+--------------------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></div><div class="post-copyright"><blockquote><p>原文作者: ma xiaozhou</p><p>原文链接: <a href="https://maxiaozhou1234.github.io/sqlite/sqlite-view/">https://maxiaozhou1234.github.io/sqlite/sqlite-view/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)</p></blockquote></div><div class="tags"><a href="/tags/sqlite/">sqlite</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/sqlite/sqlite-test/" class="pre">【sqlite】测试题</a><a href="/sqlite/sqlite-trigger/" class="next">【sqlite】Trigger 触发器</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
+<p>mysql&gt; show tables;<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<table>
+<thead>
+<tr>
+<th align="left">Tables_in_learn_db</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">=======</td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">+--------------------+</span><br><span class="line">| Tables_in_learn_db |</span><br><span class="line">+--------------------+</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 44295f6b3470b9af3de24b5f8792d7898b2cbfa2</span><br><span class="line">| company            |</span><br><span class="line">| department         |</span><br><span class="line">| employ             |</span><br><span class="line">| log                |</span><br><span class="line">+--------------------+</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">4 rows in set (0.00 sec)</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>44295f6b3470b9af3de24b5f8792d7898b2cbfa2</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</div><div class="post-copyright"><blockquote><p>原文作者: ma xiaozhou</p><p>原文链接: <a href="https://maxiaozhou1234.github.io/sqlite/sqlite-view/">https://maxiaozhou1234.github.io/sqlite/sqlite-view/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)</p></blockquote></div><div class="tags"><a href="/tags/sqlite/">sqlite</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/sqlite/sqlite-test/" class="pre">【sqlite】测试题</a><a href="/sqlite/sqlite-trigger/" class="next">【sqlite】Trigger 触发器</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
   clientID: 'caaf9fa61b214b649585',
   clientSecret: '99fa000941abd4c7f59a0cce1b1deb26813c4ed1',
   repo: 'maxiaozhou1234.github.io',
@@ -31,7 +120,7 @@
   language: 'zh-CN',
   pagerDirection: 'last'
 })
-gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#View-视图"><span class="toc-text">View 视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-创建视图语法"><span class="toc-text">1.创建视图语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建视图实例"><span class="toc-text">2.创建视图实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-删除视图"><span class="toc-text">3.删除视图</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/java/java-pipe/">【java】Pipe</a></li><li class="post-list-item"><a class="post-list-link" href="/android/java-annotation/">【java】Mapper 自定义注解器</a></li><li class="post-list-item"><a class="post-list-link" href="/android/viewpager-anr/">【Android】无限循环ViewPager setCurrentItem 导致 ANR 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/android/pager-adapter/">【Android】PagerAdapter不刷新问题分析</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-test/">【sqlite】测试题</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-view/">【sqlite】VIEW 视图</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-trigger/">【sqlite】Trigger 触发器</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-union/">【sqlite】unions 语法笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-join/">【sqlite】join 语法笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/mysql-cmd/">【MySQL】操作命令</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/default/">default</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sqlite/">sqlite</a><span class="category-list-count">6</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/gittalk/" style="font-size: 15px;">gittalk</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/sqlite/" style="font-size: 15px;">sqlite</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/nio/" style="font-size: 15px;">nio</a> <a href="/tags/android/" style="font-size: 15px;">android</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">11</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">ma xiaozhou.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var _hmt = _hmt || [];
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#View-视图"><span class="toc-text">View 视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-创建视图语法"><span class="toc-text">1.创建视图语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建视图实例"><span class="toc-text">2.创建视图实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-删除视图"><span class="toc-text">3.删除视图</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/java/java-generic/">【java】泛型理解：协变、逆变、不变</a></li><li class="post-list-item"><a class="post-list-link" href="/default/note-of-computer/">【note】计算机组成原理总结</a></li><li class="post-list-item"><a class="post-list-link" href="/java/java-pipe/">【java】Pipe</a></li><li class="post-list-item"><a class="post-list-link" href="/android/java-annotation/">【java】Mapper 自定义注解器</a></li><li class="post-list-item"><a class="post-list-link" href="/android/viewpager-anr/">【Android】无限循环ViewPager setCurrentItem 导致 ANR 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/android/pager-adapter/">【Android】PagerAdapter不刷新问题分析</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-test/">【sqlite】测试题</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-view/">【sqlite】VIEW 视图</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-trigger/">【sqlite】Trigger 触发器</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-union/">【sqlite】unions 语法笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/default/">default</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sqlite/">sqlite</a><span class="category-list-count">6</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/gittalk/" style="font-size: 15px;">gittalk</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/sqlite/" style="font-size: 15px;">sqlite</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/nio/" style="font-size: 15px;">nio</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 15px;">计算机</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">11</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">ma xiaozhou.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "//hm.baidu.com/hm.js?2329dcd6b360689143bd059b178d5961";

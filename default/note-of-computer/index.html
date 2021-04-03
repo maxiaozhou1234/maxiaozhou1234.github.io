@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="xiaozhou blog"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><link rel="stylesheet" type="text/css" href="https://unpkg.com/gitalk/dist/gitalk.css?v=2.0.4"><title>【note】计算机组成原理总结 | xiaozhou Blog</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【note】计算机组成原理总结</h1><a id="logo" href="/.">xiaozhou Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">【note】计算机组成原理总结</h1><div class="post-meta"><a href="/default/note-of-computer/#comments" class="comment-count"></a><p><span class="date">Mar 19, 2021</span><span><a href="/categories/default/" class="category">default</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><p>学习《深入浅出计算机组成原理》课程后总结</p>
+<h2 id="1-冯·诺依曼体系"><a href="#1-冯·诺依曼体系" class="headerlink" title="1. 冯·诺依曼体系"></a>1. 冯·诺依曼体系</h2><p>计算机基于“冯·诺依曼体系”进行构建，主要由5部分组成，分别为：</p>
+<ol>
+<li>控制器</li>
+<li>逻辑单元（ALU）</li>
+<li>存储器</li>
+<li>输入</li>
+<li>输出</li>
+</ol>
+<h2 id="2-中央处理器-CPU"><a href="#2-中央处理器-CPU" class="headerlink" title="2. 中央处理器 CPU"></a>2. 中央处理器 CPU</h2><p>从 <code>冯·诺依曼体系</code> 出发，控制器和算术逻辑单元组成初步的中央处理器。控制器控制着指令的读取、加载以及计数器自增，而算术逻辑单元负责指令的执行。</p>
+<h3 id="2-1-时钟周期"><a href="#2-1-时钟周期" class="headerlink" title="2.1 时钟周期"></a>2.1 时钟周期</h3><p>CPU 主频由晶振控制，如 i5-4590 主频为3.30GHz，则表示晶振 1s 可以震荡 3.30x10^6 次，频率越高，CPU 1秒内执行的次数越多，性能越好。<br>我们通过下面的公式来衡量 CPU 的性能：</p>
+<blockquote>
+<p>程序的 CPU 执行时间 = 指令数×CPI×Clock Cycle Time</p>
+</blockquote>
+<p>从公式上看，简单的提供 CPU 性能方式是提高主频，同时在 CPU 上放更多的晶体管，让 CPU 变得更快，能够处理更多的事务。但 CPU 主频不能无限提高，在 CPU 有限的空间里，为了让 CPU 更快，放置开关控制电路越多，晶体管越多，提升主频，让晶体管的“开”“关”更快，由此带来更大的耗电和发热。</p>
+<p>CPU 功率可以用下面的公式来表示：</p>
+<blockquote>
+<p>功耗 ~= 1/2 ×负载电容×电压的平方×开关频率×晶体管数量</p>
+</blockquote>
+<p>在开关频率和晶体管增加的情况下，为了降低功耗，最优解法是减低电压，由于电压是平方级别降低，所减小的功耗相当可观，这也是笔记本电脑通常使用低压 CPU 的原因。不过电压也不能无限减低，因为过低电压可能导致晶体管无法正常工作，从而导致 CPU 无法使用。</p>
+<p>提高晶体管数量另一个方式，使用更高级的制芯工艺，如 5nm、7nm，这样可以在同样空间里放入更多的晶体管。</p>
+<h3 id="2-2-指令周期、CPU-周期（机器周期）"><a href="#2-2-指令周期、CPU-周期（机器周期）" class="headerlink" title="2.2 指令周期、CPU 周期（机器周期）"></a>2.2 指令周期、CPU 周期（机器周期）</h3><p>那么，一条指令的完整执行，称之为<strong>指令周期</strong>，包括<code>fetch</code>-<code>decode</code>-<code>excute</code>-<code>memory</code>-<code>writeback</code>，CPU 内部不断循环执行前三个步骤，在 CPU 之外，指令执行完毕之后，需要访问内存，将数据写回主内存，由这五部分组成一个完整的 <strong>指令周期</strong>。<br>一条指令的执行，需要先从内存中读取，而 CPU 从内存中读取一条指令的最短时间，我们称之为<strong>CPU 周期</strong>，一个完整的指令周期，至少包括指令的读取和指令的执行，即一个指令周期至少需要两个 CPU 周期，复杂的指令则需要更多的 CPU 周期。</p>
+<h3 id="2-3-程序的性能"><a href="#2-3-程序的性能" class="headerlink" title="2.3 程序的性能"></a>2.3 程序的性能</h3><blockquote>
+<p>程序性能 = 指令数 × CPI × 时钟周期</p>
+</blockquote>
+<p><strong>单指令周期处理器</strong><br>我们希望一整条指令的执行在一个时钟周期内完成，这样我们一个时钟周期可以执行一条指令，CPI 也为1，看起来比执行一条指令需要多个时钟周期好，采取这种思路的处理器，称为“单指令周期处理器”。<br>由于时钟周期固定，但指令的电路复杂程度不同，所以实际上一条指令执行时间是不同的。为了保证所有指令都在一个时钟周期内完成，那么最合适的时钟周期为执行时间最长的指令，其他短执行时间的指令在执行完毕之后也需要空转等待时钟周期结束再执行下一条指令。</p>
+<p>为了一步提升指令处理效率，引入了“<strong>指令流水线</strong>”。</p>
+<h3 id="2-4-指令流水线"><a href="#2-4-指令流水线" class="headerlink" title="2.4 指令流水线"></a>2.4 指令流水线</h3><p>为了解决单指令周期过长问题，引入流水线，将指令周期分割为多个流水阶段（stage），实现各个阶段可以运行在不同的时钟周期中。</p>
+<p>将一条指令拆分为多个步骤，同时每一阶段的电路在完成对应的任务之后，可以直接执行下一条指令的对应阶段。</p>
+<p>注意：<br>流水线设计不宜过深。理论上流水线更长，可以提高 CPU 频率，让 CPU 处理流水阶段更短，从而提高 CPU 效率。但是部分指令执行时间很短，而过长流水线使得即使是短指令也需要浪费时间在空阶段（NOP）流水寄存器上，导致实际效率降低 。<br>同时，提高 CPU 频率，使电路更加复杂，晶体管数量增多，带来了更高的发热与功耗。</p>
+<h4 id="2-4-1-流水线概念及设计"><a href="#2-4-1-流水线概念及设计" class="headerlink" title="2.4.1 流水线概念及设计"></a>2.4.1 流水线概念及设计</h4><p>如果把一个指令拆分为“取指令-指令译码-执行指令”，那么它是三级的流水线；如果进一步拆分，把“执行指令”分为“指令执行-内存访问-数据写回”，那么它就是一个五级的流水线。</p>
+<p>五级的流水线，表示在同一个时钟周期里面，可以同时运行五条指令的不同阶段。虽然对于一条指令执行时间变成了5个时钟周期，但是我们可以把CPU 主频提得更高，是单位时钟周期更小。<strong>我们不需要确保最复杂的那条指令在时钟周期里面执行完成，而只要保障一个最复杂的流水线级的操作，在一个时钟周期内完成就好了。</strong></p>
+<p>如果一个操作步骤的时间太长，那么我们把这个步骤拆分为更多的步骤，让所有的步骤需要执行的时间尽量都差不多。现代 ARM 或者 Intel 的 CPU 流水线计数都已经到了 14 级。</p>
+<h4 id="2-4-2-超长流水线瓶颈"><a href="#2-4-2-超长流水线瓶颈" class="headerlink" title="2.4.2 超长流水线瓶颈"></a>2.4.2 超长流水线瓶颈</h4><p>虽然流水线可以增加吞吐率，但是流水线级数过深反而会增加性能成本。</p>
+<ol>
+<li>性能开销<br> 流水线同步时钟周期，不再是指令级别，而是流水线阶段级别。每一级流水线输出都要放入<strong>流水线寄存器</strong>中，在下一时钟周期交给下一级流水线处理，每级流水线寄存器处理大约需要 20 皮秒。过深的流水线，即使后面无需操作的阶段，也需要把时间消耗在<code>流水线寄存器</code>上，导致开销增大。参考奔腾4深流水线，高频率的失败。</li>
+<li>功耗增加<br> 流水线深度提升，必须提高主频，才能保持与之前 CPU 同样的性能。同时流水线深度增加，需要更多的晶体管，两者都让 CPU 功耗增加，使得耗电和散热都成为大问题。</li>
+</ol>
+<h4 id="2-4-3-CPU-流水线设计"><a href="#2-4-3-CPU-流水线设计" class="headerlink" title="2.4.3 CPU 流水线设计"></a>2.4.3 CPU 流水线设计</h4><ol>
+<li><p>结构冒险<br> 仍使用冯·诺依曼体系结构</p>
+<ul>
+<li>参考“哈佛架构”，增加指令缓存、数据缓存，解决资源冲突问题（从“硬件层面”解决问题）</li>
+<li>插入 NOP (停顿/冒泡）</li>
+</ul>
+</li>
+<li><p>数据冒险</p>
+<ul>
+<li><p><strong>依赖关系</strong></p>
+<ol>
+<li>数据依赖 –先写后读</li>
+<li>反依赖 –先读后写</li>
+<li>输出依赖 –先写再写</li>
+</ol>
+</li>
+<li><p><strong>NOP 操作和指令对齐</strong><br>  不需操作的 stage 运行一次 NOP，<strong>一定不和前一条指令的相同 stage 在同一时钟周期</strong>，这样保证前后两指令不在同一时钟周期重叠产生竞争，产生结构冒险。</p>
+<p>  NOP 对齐，有可能插入过多的 NOP 导致 CPU 空转，所以有了下面的操作数前推：</p>
+</li>
+<li><p><strong>操作数前推</strong>（Operand Forwarding)<br>  或者叫“操作数旁路”（Operand Bypassing）<br>  前一指令与后指令有依赖关系，前指令执行结果直接传入下一指令中运行，跳过后面的写入内存操作。<strong>该操作更像是将结果转发到下一指令。</strong></p>
+</li>
+<li><p><strong>乱序执行</strong></p>
+</li>
+</ul>
+</li>
+<li><p>控制冒险</p>
+<ul>
+<li><p>硬件加速<br>  将条件判断、地址跳转提前到译码阶段，而不是在指令执行阶段</p>
+</li>
+<li><p>分支预测  </p>
+<ul>
+<li>静态分支预测<br>  假装分支不发生</li>
+<li>动态分支预测<br>  根据之前条件跳转比较结果预测<ul>
+<li>一级分支预测/1 比特饱和计数</li>
+<li>双模态预测器/2 比特饱和计数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-4-4-提升-CPU-吞吐率"><a href="#2-4-4-提升-CPU-吞吐率" class="headerlink" title="2.4.4 提升 CPU 吞吐率"></a>2.4.4 提升 CPU 吞吐率</h4><ol>
+<li>SuperScalar 超量发射</li>
+<li>VLIW 超长指令字</li>
+</ol>
+<h4 id="2-4-5-CPU-指令集"><a href="#2-4-5-CPU-指令集" class="headerlink" title="2.4.5 CPU 指令集"></a>2.4.5 CPU 指令集</h4><ol>
+<li>CISC (Complex Instruction Set Comptuing) 复杂指令集</li>
+<li>RISC（Reduced Instruction Set Comptuing） 精简指令集</li>
+<li>RISC-V 开源指令集</li>
+</ol>
+<h3 id="2-5-图像处理芯片-GPU"><a href="#2-5-图像处理芯片-GPU" class="headerlink" title="2.5 图像处理芯片 GPU"></a>2.5 图像处理芯片 GPU</h3><p>假设显示器分辨率为 640*480，那么有 30 万个像素，每秒 60 帧渲染，那么每秒需要 1800 万次单像素渲染。<br>从栅格化开始，有3个流水线步骤，即使每个步骤只有一个指令，也需要 5400 万条指令。</p>
+<p>所以依靠 CPU 是无法完成这个工作。因为图形渲染有固定流程，所以直接用硬件来处理这部分内容，由于计算流程固定，所以也不需要流水线停顿、乱序等导致 CPU 计算变复杂问题，使得硬件制造相对简单便宜。</p>
+<p>图形渲染流程：<strong>图形流水线</strong></p>
+<p>顶点处理 – 图元处理 – 栅格处理 – 片段处理 –像素操作</p>
+<ol>
+<li>顶点处理 -&gt;&gt; 三维转二维</li>
+<li>图元处理 -&gt;&gt; 点连成图形形状</li>
+<li>栅格处理 -&gt;&gt; 将图形形状转换为小格</li>
+<li>片段处理 -&gt;&gt; 对栅格进行处理，色彩处理</li>
+<li>像素操作 -&gt;&gt; 将图像片段渲染至屏</li>
+</ol>
+<h3 id="2-6-特殊用途的处理器"><a href="#2-6-特殊用途的处理器" class="headerlink" title="2.6 特殊用途的处理器"></a>2.6 特殊用途的处理器</h3><ol>
+<li>FPGA（Field-Programmable Gate Array）现场可编程门阵列<br> 可通过代码编辑，使之完成特定的电路功能。芯片开发</li>
+<li>ASIC（Application-Specific Integrated Circuit） 专用集成电路<br> 为专门用的场景设计的芯片。如摄像头芯片、录音笔芯片等，单独处理一种场景。</li>
+<li>特别的 ASIC – TPU<br> 深度训练处理芯片</li>
+</ol>
+<h2 id="3-存储器"><a href="#3-存储器" class="headerlink" title="3. 存储器"></a>3. 存储器</h2><h3 id="3-1-存储设备类型"><a href="#3-1-存储设备类型" class="headerlink" title="3.1 存储设备类型"></a>3.1 存储设备类型</h3><ol>
+<li>SRAM(static random-access memory)<br> 静态随机存取存储器，掉电数据小时，使用在 CPU 内存</li>
+<li>DRAM(dynamic random acces memory)<br> 动态随机存取存储器。密度高，容量大，相对 SRAM 便宜，需要定时刷新充电，保持数据。电脑运行内存(内存条)</li>
+<li>SSD（solid-static drive）HDD(hard disk drive)<br> 硬盘，外部存储介质，容量更大，更便宜</li>
+</ol>
+<h3 id="3-2-数据访问优化"><a href="#3-2-数据访问优化" class="headerlink" title="3.2 数据访问优化"></a>3.2 数据访问优化</h3><ol>
+<li><p>局部性原理</p>
+<ol>
+<li>时间局部性<br> 如果一个数据被访问了，那么它在短时间内还会被再次访问。</li>
+<li>空间局部性<br> 如果一个数据被访问了，那么和它相邻的数据也很快会被访问。</li>
+</ol>
+</li>
+<li><p>缓存算法<br> LRU（Least Recently Used）</p>
+</li>
+<li><p>根据需要选择合适程序架构，以及合适的存储介质<br> 广告推荐系统（DMP）举例，详细查阅 52章《MongoDB并不是什么灵丹妙药.pdf》</p>
+<ul>
+<li>数据管道：大量数据，顺序读写，响应时间不要求<br>  Kafka,HDD</li>
+<li>数据仓库：读多场景，超大数据，长时间存储<br>  Arvo/Hive，HDD</li>
+<li>KV数据库：随机读写，响应高<br>  AeriSpike ，SSD</li>
+</ul>
+</li>
+</ol>
+<h2 id="4-输入设备"><a href="#4-输入设备" class="headerlink" title="4. 输入设备"></a>4. 输入设备</h2><h3 id="4-1-总线"><a href="#4-1-总线" class="headerlink" title="4.1 总线"></a>4.1 总线</h3><ol>
+<li>双独立总线<ol>
+<li>本地总线（后端总线）<br> 连接 CPU 和内部高速缓存</li>
+<li>前端总线<br> 连接 CPU 和主内存</li>
+</ol>
+</li>
+<li>另一种设计：三种线路和多总线架构<br> 在 CPU 和主内存中间接入<strong>北桥芯片</strong>，一分为二<ol>
+<li>系统总线：CPU 和北桥芯片连接</li>
+<li>内存总线：主内存和北桥芯片连接</li>
+<li>I/O总线：北桥芯片和I/O总线连接<br> 事实上，真实的计算机总线分更细，根据不同设备还会分成独立的 PCI 总线、ISA 总线等</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-2-信号和地址：发挥总线的价值"><a href="#4-2-信号和地址：发挥总线的价值" class="headerlink" title="4.2 信号和地址：发挥总线的价值"></a>4.2 信号和地址：发挥总线的价值</h3><ol>
+<li>I/O 设备挂载在总线，两者使用映射的内存地址：<strong>内存映射IO（Memory-Mapped I/O）简称MMIO</strong></li>
+<li>还有通过端口通信，<strong>端口映射（Port-Mapped I/O）简称 PMIO</strong>，或者叫<strong>独立输入输出（Isolated I/O）</strong></li>
+</ol>
+<h2 id="5-输出设备"><a href="#5-输出设备" class="headerlink" title="5. 输出设备"></a>5. 输出设备</h2><p>显示器</p>
+</div><div class="post-copyright"><blockquote><p>原文作者: ma xiaozhou</p><p>原文链接: <a href="https://maxiaozhou1234.github.io/default/note-of-computer/">https://maxiaozhou1234.github.io/default/note-of-computer/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)</p></blockquote></div><div class="tags"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/java/java-generic/" class="pre">【java】泛型理解：协变、逆变、不变</a><a href="/java/java-pipe/" class="next">【java】Pipe</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
+  clientID: 'caaf9fa61b214b649585',
+  clientSecret: '99fa000941abd4c7f59a0cce1b1deb26813c4ed1',
+  repo: 'maxiaozhou1234.github.io',
+  owner: 'maxiaozhou1234',
+  admin: ['maxiaozhou1234'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: false,
+  language: 'zh-CN',
+  pagerDirection: 'last'
+})
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机组成原理"><span class="toc-text">计算机组成原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-冯·诺依曼体系"><span class="toc-text">1. 冯·诺依曼体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-中央处理器-CPU"><span class="toc-text">2. 中央处理器 CPU</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-时钟周期"><span class="toc-text">2.1 时钟周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-指令周期、CPU-周期（机器周期）"><span class="toc-text">2.2 指令周期、CPU 周期（机器周期）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-程序的性能"><span class="toc-text">2.3 程序的性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-指令流水线"><span class="toc-text">2.4 指令流水线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-流水线概念及设计"><span class="toc-text">2.4.1 流水线概念及设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-超长流水线瓶颈"><span class="toc-text">2.4.2 超长流水线瓶颈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-3-CPU-流水线设计"><span class="toc-text">2.4.3 CPU 流水线设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-4-提升-CPU-吞吐率"><span class="toc-text">2.4.4 提升 CPU 吞吐率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-5-CPU-指令集"><span class="toc-text">2.4.5 CPU 指令集</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-图像处理芯片-GPU"><span class="toc-text">2.5 图像处理芯片 GPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-特殊用途的处理器"><span class="toc-text">2.6 特殊用途的处理器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-存储器"><span class="toc-text">3. 存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-存储设备类型"><span class="toc-text">3.1 存储设备类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-数据访问优化"><span class="toc-text">3.2 数据访问优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-输入设备"><span class="toc-text">4. 输入设备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-总线"><span class="toc-text">4.1 总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-信号和地址：发挥总线的价值"><span class="toc-text">4.2 信号和地址：发挥总线的价值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-输出设备"><span class="toc-text">5. 输出设备</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/java/java-generic/">【java】泛型理解：协变、逆变、不变</a></li><li class="post-list-item"><a class="post-list-link" href="/default/note-of-computer/">【note】计算机组成原理总结</a></li><li class="post-list-item"><a class="post-list-link" href="/java/java-pipe/">【java】Pipe</a></li><li class="post-list-item"><a class="post-list-link" href="/android/java-annotation/">【java】Mapper 自定义注解器</a></li><li class="post-list-item"><a class="post-list-link" href="/android/viewpager-anr/">【Android】无限循环ViewPager setCurrentItem 导致 ANR 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/android/pager-adapter/">【Android】PagerAdapter不刷新问题分析</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-test/">【sqlite】测试题</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-view/">【sqlite】VIEW 视图</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-trigger/">【sqlite】Trigger 触发器</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-union/">【sqlite】unions 语法笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/default/">default</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sqlite/">sqlite</a><span class="category-list-count">6</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/gittalk/" style="font-size: 15px;">gittalk</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/sqlite/" style="font-size: 15px;">sqlite</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/nio/" style="font-size: 15px;">nio</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 15px;">计算机</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">11</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">ma xiaozhou.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2329dcd6b360689143bd059b178d5961";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>

@@ -2,9 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://maxiaozhou1234.github.io/java/java-generic/</loc>
+    
+    <lastmod>2021-04-03T12:59:13.819Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-view/</loc>
+    
+    <lastmod>2021-04-03T12:41:04.649Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-union/</loc>
+    
+    <lastmod>2021-04-03T12:41:04.648Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-trigger/</loc>
+    
+    <lastmod>2021-04-03T12:41:04.645Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-test/</loc>
+    
+    <lastmod>2021-04-03T12:41:04.643Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/default/note-of-computer/</loc>
+    
+    <lastmod>2021-04-03T12:41:04.641Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/mysql-cmd/</loc>
+    
+    <lastmod>2021-04-03T12:41:04.639Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://maxiaozhou1234.github.io/java/java-pipe/</loc>
     
-    <lastmod>2021-03-14T11:24:44.852Z</lastmod>
+    <lastmod>2021-04-03T12:41:04.613Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/java/java-nio/</loc>
+    
+    <lastmod>2021-04-03T12:41:04.593Z</lastmod>
     
   </url>
   
@@ -30,27 +86,6 @@
   </url>
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-view/</loc>
-    
-    <lastmod>2020-04-22T15:56:40.688Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-trigger/</loc>
-    
-    <lastmod>2020-04-22T15:56:40.688Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-union/</loc>
-    
-    <lastmod>2020-04-22T15:56:40.688Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://maxiaozhou1234.github.io/about/index.html</loc>
     
     <lastmod>2020-04-22T15:56:40.688Z</lastmod>
@@ -58,30 +93,9 @@
   </url>
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-test/</loc>
-    
-    <lastmod>2020-04-22T15:56:40.687Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-join/</loc>
     
     <lastmod>2020-04-22T15:56:40.687Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/mysql-cmd/</loc>
-    
-    <lastmod>2020-04-22T15:56:40.686Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://maxiaozhou1234.github.io/java/java-nio/</loc>
-    
-    <lastmod>2020-04-22T15:56:40.686Z</lastmod>
     
   </url>
   

@@ -5,7 +5,39 @@
 <li>创建数据库<br>create database xxx charset=utf8;//创建xx数据库，并指定编码</li>
 <li>查看创建数据库时的语法命令<br>show create database xxx;</li>
 <li>查看数据库中所有的表<br>show tables;</li>
-<li>删除数据库<br>drop database xxx;</li>
+<li>删除数据库<br>drop database xxx;<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</li>
+</ol>
+<h3 id="MySQL-5-5版本"><a href="#MySQL-5-5版本" class="headerlink" title="MySQL 5.5版本"></a>MySQL 5.5版本</h3><ol>
+<li>没有 datatime,如需要使用时间戳，用<strong>timestmap</strong>代替</li>
+<li>默认使用分号<strong>；</strong>结束判断，如果需要多行输入，将delimiter ; 更改为delimiter //，按<strong>“//”</strong>为结束判断 </li>
+</ol>
+<h3 id="待办记录"><a href="#待办记录" class="headerlink" title="待办记录"></a>待办记录</h3><ul>
+<li><input disabled="" type="checkbox"> SQLite PRAGMA</li>
+<li><input checked="" disabled="" type="checkbox"> SQLite 约束</li>
+<li><input checked="" disabled="" type="checkbox"> SQLite Join</li>
+<li><input checked="" disabled="" type="checkbox"> SQLite Unions 子句</li>
+<li><input checked="" disabled="" type="checkbox"> SQLite NULL 值 <strong>（null 未知）</strong><ul>
+<li>is not null</li>
+<li>is null</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> SQLite 别名 <strong>as 省略后效果一致</strong></li>
+<li><input checked="" disabled="" type="checkbox"> SQLite 触发器</li>
+<li><input checked="" disabled="" type="checkbox"> SQLite 索引</li>
+<li><input disabled="" type="checkbox"> SQLite Indexed By <strong>不明</strong></li>
+<li><input checked="" disabled="" type="checkbox"> SQLite Alter 命令</li>
+<li><input checked="" disabled="" type="checkbox"> SQLite Truncate Table</li>
+<li><input checked="" disabled="" type="checkbox"> SQLite 视图</li>
+<li><input disabled="" type="checkbox"> SQLite 事务</li>
+<li><input disabled="" type="checkbox"> SQLite 子查询</li>
+<li><input disabled="" type="checkbox"> SQLite Autoincrement</li>
+<li><input disabled="" type="checkbox"> SQLite 注入</li>
+<li><input disabled="" type="checkbox"> SQLite Explain</li>
+<li><input disabled="" type="checkbox"> SQLite Vacuum</li>
+<li><input checked="" disabled="" type="checkbox"> SQLite 日期 &amp; 时间</li>
+<li><input disabled="" type="checkbox"> <h1 id="SQLite-常用函数"><a href="#SQLite-常用函数" class="headerlink" title="SQLite 常用函数"></a>SQLite 常用函数</h1></li>
+</ul>
+<ol start="7">
 <li>查看所有触发器<br>show triggers;</li>
 <li>查看指定表触发器（使用 \G 切换视图为纵向输出）<br>select * from information_schema.triggers where EVENT_OBJECT_TABLE=’table_name’;</li>
 <li>删除触发器<br>drop trigger trigger_name;</li>
@@ -16,7 +48,22 @@
 <h3 id="MySQL-5-5版本注意"><a href="#MySQL-5-5版本注意" class="headerlink" title="MySQL 5.5版本注意"></a>MySQL 5.5版本注意</h3><ol>
 <li>没有 datatime,如需要使用时间戳，用<strong>timestmap</strong>代替</li>
 <li>默认使用分号<strong>；</strong>结束判断，如果需要多行输入，将delimiter ; 更改为delimiter //，按<strong>“//”</strong>为结束判断 </li>
-<li>没有 datetime ，时间戳使用 timestamp</li>
+<li>没有 datetime ，时间戳使用 timestamp<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>44295f6b3470b9af3de24b5f8792d7898b2cbfa2</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
 </ol>
 </div><div class="post-copyright"><blockquote><p>原文作者: ma xiaozhou</p><p>原文链接: <a href="https://maxiaozhou1234.github.io/sqlite/mysql-cmd/">https://maxiaozhou1234.github.io/sqlite/mysql-cmd/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)</p></blockquote></div><div class="tags"><a href="/tags/MySQL/">MySQL</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/sqlite/sqlite-join/" class="pre">【sqlite】join 语法笔记</a><a href="/java/java-nio/" class="next">【java】NIO 小结</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
   clientID: 'caaf9fa61b214b649585',
@@ -29,7 +76,7 @@
   language: 'zh-CN',
   pagerDirection: 'last'
 })
-gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-基本操作命令"><span class="toc-text">MySQL 基本操作命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-5-5版本注意"><span class="toc-text">MySQL 5.5版本注意</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/java/java-pipe/">【java】Pipe</a></li><li class="post-list-item"><a class="post-list-link" href="/android/java-annotation/">【java】Mapper 自定义注解器</a></li><li class="post-list-item"><a class="post-list-link" href="/android/viewpager-anr/">【Android】无限循环ViewPager setCurrentItem 导致 ANR 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/android/pager-adapter/">【Android】PagerAdapter不刷新问题分析</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-test/">【sqlite】测试题</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-view/">【sqlite】VIEW 视图</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-trigger/">【sqlite】Trigger 触发器</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-union/">【sqlite】unions 语法笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-join/">【sqlite】join 语法笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/mysql-cmd/">【MySQL】操作命令</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/default/">default</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sqlite/">sqlite</a><span class="category-list-count">6</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/gittalk/" style="font-size: 15px;">gittalk</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/sqlite/" style="font-size: 15px;">sqlite</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/nio/" style="font-size: 15px;">nio</a> <a href="/tags/android/" style="font-size: 15px;">android</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">11</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">ma xiaozhou.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var _hmt = _hmt || [];
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-基本操作命令"><span class="toc-text">MySQL 基本操作命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-5-5版本"><span class="toc-text">MySQL 5.5版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#待办记录"><span class="toc-text">待办记录</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLite-常用函数"><span class="toc-text">SQLite 常用函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-5-5版本注意"><span class="toc-text">MySQL 5.5版本注意</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/java/java-generic/">【java】泛型理解：协变、逆变、不变</a></li><li class="post-list-item"><a class="post-list-link" href="/default/note-of-computer/">【note】计算机组成原理总结</a></li><li class="post-list-item"><a class="post-list-link" href="/java/java-pipe/">【java】Pipe</a></li><li class="post-list-item"><a class="post-list-link" href="/android/java-annotation/">【java】Mapper 自定义注解器</a></li><li class="post-list-item"><a class="post-list-link" href="/android/viewpager-anr/">【Android】无限循环ViewPager setCurrentItem 导致 ANR 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/android/pager-adapter/">【Android】PagerAdapter不刷新问题分析</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-test/">【sqlite】测试题</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-view/">【sqlite】VIEW 视图</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-trigger/">【sqlite】Trigger 触发器</a></li><li class="post-list-item"><a class="post-list-link" href="/sqlite/sqlite-union/">【sqlite】unions 语法笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/default/">default</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sqlite/">sqlite</a><span class="category-list-count">6</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/gittalk/" style="font-size: 15px;">gittalk</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/sqlite/" style="font-size: 15px;">sqlite</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/nio/" style="font-size: 15px;">nio</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 15px;">计算机</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">11</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">ma xiaozhou.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "//hm.baidu.com/hm.js?2329dcd6b360689143bd059b178d5961";
