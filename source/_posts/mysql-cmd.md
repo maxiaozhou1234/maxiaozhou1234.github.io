@@ -21,37 +21,6 @@ show create database xxx;
 show tables;
 6. 删除数据库
 drop database xxx;
-<<<<<<< HEAD
-
-### MySQL 5.5版本
-1. 没有 datatime,如需要使用时间戳，用**timestmap**代替
-2. 默认使用分号**；**结束判断，如果需要多行输入，将delimiter ; 更改为delimiter //，按**“//”**为结束判断 
-
-### 待办记录
-
-* [ ] SQLite PRAGMA
-* [x] SQLite 约束
-* [x] SQLite Join
-* [x] SQLite Unions 子句
-* [x] SQLite NULL 值 **（null 未知）**
-	* is not null
-	* is null
-* [x] SQLite 别名 **as 省略后效果一致**
-* [x] SQLite 触发器
-* [x] SQLite 索引
-* [ ] SQLite Indexed By **不明**
-* [x] SQLite Alter 命令
-* [x] SQLite Truncate Table
-* [x] SQLite 视图
-* [ ] SQLite 事务
-* [ ] SQLite 子查询
-* [ ] SQLite Autoincrement
-* [ ] SQLite 注入
-* [ ] SQLite Explain
-* [ ] SQLite Vacuum
-* [x] SQLite 日期 & 时间
-* [ ] SQLite 常用函数
-=======
 7. 查看所有触发器
 show triggers;
 8. 查看指定表触发器（使用 \G 切换视图为纵向输出）
@@ -70,4 +39,4 @@ drop view name;
 1. 没有 datatime,如需要使用时间戳，用**timestmap**代替
 2. 默认使用分号**；**结束判断，如果需要多行输入，将delimiter ; 更改为delimiter //，按**“//”**为结束判断 
 3. 没有 datetime ，时间戳使用 timestamp
->>>>>>> 44295f6b3470b9af3de24b5f8792d7898b2cbfa2
+
