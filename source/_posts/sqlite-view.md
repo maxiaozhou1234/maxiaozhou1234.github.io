@@ -25,16 +25,11 @@ mp_id;
 Query OK, 0 rows affected (0.03 sec)   
 
  mysql> select * from company_view;
-<<<<<<< HEAD
 
-| id | name  | age  | dept        |
-|:-:|:-:|-:|:-:
-=======
 ```
 +----+-------+------+-------------+
 | id | name  | age  | dept        |
 +----+-------+------+-------------+
->>>>>>> 44295f6b3470b9af3de24b5f8792d7898b2cbfa2
 |  1 | Paul  |   32 | IT Billing  |
 |  2 | Allen |   25 | Engineering |
 |  7 | James |   24 | Finance     |
@@ -42,65 +37,45 @@ Query OK, 0 rows affected (0.03 sec)
 |  4 | Mark  |   25 | Finance     |
 |  5 | David |   27 | Engineering |
 |  6 | Kim   |   22 | Finance     |
-<<<<<<< HEAD
++----+-------+------+-------------+
 
 7 rows in set (0.00 sec)
-=======
-+----+-------+------+-------------+
-7 rows in set (0.00 sec)
 ```
->>>>>>> 44295f6b3470b9af3de24b5f8792d7898b2cbfa2
 
 #### 3.删除视图
 > drop view view_name
 
 mysql> show tables;
-<<<<<<< HEAD
 
-| Tables_in_learn_db |
-|:-|
-=======
 ```
 +--------------------+
 | Tables_in_learn_db |
 +--------------------+
->>>>>>> 44295f6b3470b9af3de24b5f8792d7898b2cbfa2
 | company            |
 | company_view       |
 | department         |
 | employ             |
 | log                |
-<<<<<<< HEAD
++--------------------+
 
 5 rows in set (0.01 sec)
-=======
-+--------------------+
-5 rows in set (0.01 sec)
 ```
->>>>>>> 44295f6b3470b9af3de24b5f8792d7898b2cbfa2
 
 > mysql> drop view company_view;
 Query OK, 0 rows affected (0.00 sec)
 
 mysql> show tables;
-<<<<<<< HEAD
 
-| Tables_in_learn_db |
-|:-|
-=======
 ```
 +--------------------+
 | Tables_in_learn_db |
 +--------------------+
->>>>>>> 44295f6b3470b9af3de24b5f8792d7898b2cbfa2
 | company            |
 | department         |
 | employ             |
 | log                |
 +--------------------+
-<<<<<<< HEAD
-4 rows in set (0.00 sec)
-=======
+
 4 rows in set (0.00 sec)
 ```
->>>>>>> 44295f6b3470b9af3de24b5f8792d7898b2cbfa2
+
