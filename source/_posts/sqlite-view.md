@@ -78,4 +78,3 @@ mysql> show tables;
 
 4 rows in set (0.00 sec)
 ```
-

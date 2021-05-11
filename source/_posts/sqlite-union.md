@@ -150,3 +150,4 @@ p_id,name,dept from company left outer join department on company.id=department.
 ```
 
 结果如上。
+
