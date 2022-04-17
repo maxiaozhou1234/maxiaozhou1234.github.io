@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://maxiaozhou1234.github.io/java/java-generic/</loc>
-    <lastmod>2021-04-03</lastmod>
+    <loc>https://maxiaozhou1234.github.io/vue/vue-%E5%88%9D%E5%AD%A6%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0/</loc>
+    <lastmod>2022-04-17</lastmod>
   </url>  <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-view/</loc>
-    <lastmod>2021-04-03</lastmod>
+    <lastmod>2021-05-12</lastmod>
   </url>  <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-union/</loc>
-    <lastmod>2021-04-03</lastmod>
+    <lastmod>2021-05-12</lastmod>
   </url>  <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-trigger/</loc>
-    <lastmod>2021-04-03</lastmod>
+    <lastmod>2021-05-12</lastmod>
   </url>  <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-test/</loc>
-    <lastmod>2021-04-03</lastmod>
-  </url>  <url>
-    <loc>https://maxiaozhou1234.github.io/default/note-of-computer/</loc>
-    <lastmod>2021-04-03</lastmod>
+    <lastmod>2021-05-12</lastmod>
   </url>  <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/mysql-cmd/</loc>
+    <lastmod>2021-05-12</lastmod>
+  </url>  <url>
+    <loc>https://maxiaozhou1234.github.io/java/java-generic/</loc>
+    <lastmod>2021-05-12</lastmod>
+  </url>  <url>
+    <loc>https://maxiaozhou1234.github.io/android/java-annotation/</loc>
+    <lastmod>2021-05-12</lastmod>
+  </url>  <url>
+    <loc>https://maxiaozhou1234.github.io/default/note-of-computer/</loc>
     <lastmod>2021-04-03</lastmod>
   </url>  <url>
     <loc>https://maxiaozhou1234.github.io/java/java-pipe/</loc>
@@ -27,9 +33,6 @@
   </url>  <url>
     <loc>https://maxiaozhou1234.github.io/java/java-nio/</loc>
     <lastmod>2021-04-03</lastmod>
-  </url>  <url>
-    <loc>https://maxiaozhou1234.github.io/android/java-annotation/</loc>
-    <lastmod>2020-07-12</lastmod>
   </url>  <url>
     <loc>https://maxiaozhou1234.github.io/android/viewpager-anr/</loc>
     <lastmod>2020-04-25</lastmod>

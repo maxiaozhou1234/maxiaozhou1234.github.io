@@ -2,37 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://maxiaozhou1234.github.io/java/java-generic/</loc>
+    <loc>https://maxiaozhou1234.github.io/vue/vue-%E5%88%9D%E5%AD%A6%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0/</loc>
     
-    <lastmod>2021-04-03T12:59:13.819Z</lastmod>
+    <lastmod>2022-04-17T10:42:20.532Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-view/</loc>
     
-    <lastmod>2021-04-03T12:41:04.649Z</lastmod>
+    <lastmod>2021-05-12T14:50:12.520Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-union/</loc>
     
-    <lastmod>2021-04-03T12:41:04.648Z</lastmod>
+    <lastmod>2021-05-12T14:50:12.519Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-trigger/</loc>
     
-    <lastmod>2021-04-03T12:41:04.645Z</lastmod>
+    <lastmod>2021-05-12T14:50:12.517Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://maxiaozhou1234.github.io/sqlite/sqlite-test/</loc>
     
-    <lastmod>2021-04-03T12:41:04.643Z</lastmod>
+    <lastmod>2021-05-12T14:50:12.516Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/sqlite/mysql-cmd/</loc>
+    
+    <lastmod>2021-05-12T14:50:12.508Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/java/java-generic/</loc>
+    
+    <lastmod>2021-05-12T14:50:12.494Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://maxiaozhou1234.github.io/android/java-annotation/</loc>
+    
+    <lastmod>2021-05-12T14:50:12.478Z</lastmod>
     
   </url>
   
@@ -40,13 +61,6 @@
     <loc>https://maxiaozhou1234.github.io/default/note-of-computer/</loc>
     
     <lastmod>2021-04-03T12:41:04.641Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://maxiaozhou1234.github.io/sqlite/mysql-cmd/</loc>
-    
-    <lastmod>2021-04-03T12:41:04.639Z</lastmod>
     
   </url>
   
@@ -61,13 +75,6 @@
     <loc>https://maxiaozhou1234.github.io/java/java-nio/</loc>
     
     <lastmod>2021-04-03T12:41:04.593Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://maxiaozhou1234.github.io/android/java-annotation/</loc>
-    
-    <lastmod>2020-07-12T09:54:37.104Z</lastmod>
     
   </url>
   
