@@ -55,7 +55,7 @@ Q：在最后选择 `npm` 或 `yarn` 可能导致初始化迟迟无法结束，�
 
 或者，在本地打包后，触发 webpack 脚本将打包好的文件图推送到服务器指定路径实现项目部署。
 
-## 4.vue 跨域问题
+## 4. vue 跨域问题
 
 **跨域** 指浏览器不允许页面所在源去请求另一个源的数据。
 
@@ -205,3 +205,32 @@ var b = !!a;//false
 
 通过两个 **!!** 将定义的变量读取出来，保证拿到安全的结果。
 
+## 7. js 函数重载
+
+函数重载是其他高级语言具备的特性，指函数/方法有相同的名称，但函数的参数不同。
+
+在 js 中，没有函数签名的概念，它的参数是由包含零或多个值得数组来标识。因为它没有函数签名，所以真正的重载是不可能做到的。
+
+如果在 js 中定于了 **两个相同名称** 的函数/方法，那么后编写的方法会覆盖前一个方法。
+
+但是，在函数中，可以通过对 **arguments** 来读取所有的入参
+
+```javascript
+function test(param1,param2){
+	console.log(arguments.length);
+}
+```
+
+通过对入参的判断，可以在 js 实现 **伪重载** 功能
+
+```javascript
+function test(){
+    if(arguments.length==1){
+        console.log('do logic 1.');
+    }else{
+        console.log('do logic 2.');
+    }
+}
+```
+
+参考：[javascript可以实现函数重载吗](https://www.php.cn/website-design-ask-487716.html)
